@@ -91,6 +91,7 @@ testToLowerCase = do
     assert (toLowerCase "hello world" == "hello world") $ putStrLn "toLowerCase \"hello world\" == \"hello world\""
     assert (toLowerCase "HeLlo WoRlD" == "hello world") $ putStrLn "toLowerCase \"HeLlo WoRlD\" == \"hello world\""
     assert (toLowerCase "The birch canoe slid on the smooth planks." == "the birch canoe slid on the smooth planks.") $ putStrLn "toLowerCase \"The birch canoe slid on the smooth planks.\" == \"the birch canoe slid on the smooth planks.\""
+    assert (toLowerCase "Sit on a potato pan, Otis" == toLowerCase "sIT oN A PoTATo PaN, oTIS") $ putStrLn "toLowerCase \"Sit on a potato pan, Otis\" == toLowerCase \"sIT oN A PoTATo PaN, oTIS\""
     assert (toLowerCase "Space: the final frontier. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!" == "space: the final frontier. these are the voyages of the starship enterprise. its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!") $ putStrLn "toLowerCase \"Space: the final frontier. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!\" == \"space: the final frontier. these are the voyages of the starship enterprise. its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!\""
     putStrLn "-----To Lowercase tests passed!-----"
 
@@ -102,6 +103,7 @@ testIsPalindrome = do
     assert (isPalindrome "A man a plan a canal Panama") $ putStrLn "isPalindrome \"A man a plan a canal Panama\" == True"
     assert (not(isPalindrome "Space: the final frontier. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!")) $ putStrLn "isPalindrome \"Space: the final frontier. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!\" == False"
     assert (isPalindrome "Was it a cat I saw") $ putStrLn "isPalindrome \"Was it a cat I saw\" == True"
+    assert (isPalindrome "Sit on a potato pan, Otis" == isPalindrome "sIT oN A PoTATo PaN, oTIS") $ putStrLn "isPalindrome \"Sit on a potato pan, Otis\" == isPalindrome \"sIT oN A PoTATo PaN, oTIS\""
     putStrLn "-----Is Palindrome tests passed!-----"
 
 test :: IO()
