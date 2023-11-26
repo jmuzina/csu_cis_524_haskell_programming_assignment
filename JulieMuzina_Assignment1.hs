@@ -4,6 +4,8 @@
     Haskell Programming Assignment
 -}
 
+module JulieMuzina_Assignment1 where
+
 -- Import needed for the `toLowerCase` function
 import Data.Char (toLower)
 
@@ -17,7 +19,7 @@ factorial :: Integer -> Integer
 factorial n
     -- Guard clause to handle corner cases first
     | n < 0 = 0
-    | n <= 1 = 1
+    | n <= 2 = n
     | otherwise = n * factorial (n - 1)
 
 {-
@@ -100,8 +102,8 @@ toLowerCase = map toLower
 
 {-
     Check whether a string is a palindrome
-    @param {Foldable} l - List to check palindrome state
-    @returns {Bool} whether `l` is a palindrome,, ignoring spaces and case.
+    @param {String} s - String to check palindrome state
+    @returns {Bool} whether `s` is a palindrome,, ignoring spaces and case.
 -}
 isPalindrome :: String -> Bool
 {-
@@ -109,4 +111,4 @@ isPalindrome :: String -> Bool
     A string is a palindrome if its reverse is equal to itself.
     We also use the helper functions `toLowerCase` and `removeAllSpaces` to make the palindrome check ignore case and spaces.
 -}
-isPalindrome l = removeAllSpaces (toLowerCase l) == reverseList (removeAllSpaces (toLowerCase l))
+isPalindrome s = removeAllSpaces (toLowerCase s) == reverseList (removeAllSpaces (toLowerCase s))
