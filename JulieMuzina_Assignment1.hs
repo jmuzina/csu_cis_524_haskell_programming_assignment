@@ -7,7 +7,7 @@
 {-
     #1. Write a Haskell function factorial that calculates the factorial of a given integer n. 
     Ensure the function handles edge cases like 0 and negative numbers.
-    @param n {Integer} number to calculate factorial for
+    @param {Integer} n - number to calculate factorial for
     @returns {Integer} n!
 -}
 factorial :: Integer -> Integer
@@ -19,7 +19,7 @@ factorial n
 
 {-
     #2. Implement a Haskell function isPrime that determines whether a given positive integer n is a prime number or not.
-    @param n {Integer} number to check for prime status
+    @param {Integer} n - number to check for prime status
     @returns {Bool} whether `n` is prime
 -}
 isPrime :: Integer -> Bool
@@ -39,6 +39,8 @@ isPrime n
 {-
     #3. Create a Haskell function fibonacci that generates the nth Fibonacci number using a recursive approach. 
     Make sure to handle edge cases, such as when n is 0 or 1.
+    @param {Integer} n - Position of the desired fibonacci number within the fibonacci sequence
+    @returns {Integer} `n`th fibonacci number
 -}
 fibonacci :: Integer -> Integer
 fibonacci n
@@ -46,4 +48,23 @@ fibonacci n
     | n < 0 = 0
     | n <= 1 = n
     -- Recursive step
-    | otherwise = fibonacci(n - 1) + fibonacci(n - 2)
+    | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
+
+{-
+    #4. Write a Haskell function reverseList that reverses a list (or a string) using recursion.
+    For example, reverseList [1, 2, 3] should return [3, 2, 1]
+    @param {Foldable} list - List or string to reverse
+    @returns {Foldable} `list` in reverse order
+-}
+reverseList :: [t] -> [t]
+reverseList l
+    -- Empty lists and lists of length 1 are already reversed
+    | null l = []
+    | length l == 1 = l
+    -- List is not empty, reverse it.
+    -- Take the last character of `list` and prepend (:) it to the result of a recursive call with all characters of `list` except the last one (init)
+    -- i.e. reverseList "test" -> "t" : reverseList "tes" -> "tset"
+    -- reverseList "tes" -> "s" : reverseList "te" -> "set"
+    -- reverseList "te" -> "e" : reverseList "t" -> "et"
+    -- reverseList "t" -> "t"
+    | otherwise = last l : reverseList (init l)
