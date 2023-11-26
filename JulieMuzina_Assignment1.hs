@@ -61,10 +61,11 @@ reverseList l
     -- Empty lists and lists of length 1 are already reversed
     | null l = []
     | length l == 1 = l
-    -- List is not empty, reverse it.
-    -- Take the last character of `list` and prepend (:) it to the result of a recursive call with all characters of `list` except the last one (init)
-    -- i.e. reverseList "test" -> "t" : reverseList "tes" -> "tset"
-    -- reverseList "tes" -> "s" : reverseList "te" -> "set"
-    -- reverseList "te" -> "e" : reverseList "t" -> "et"
-    -- reverseList "t" -> "t"
+    {-- List is not empty, reverse it.
+        Take the last character of `list` and prepend (:) it to the result of a recursive call with all characters of `list` except the last one (init)
+        reverseList "test" -> "t" : reverseList "tes" -> "tset"
+            reverseList "tes" -> "s" : reverseList "te" -> "set"
+                reverseList "te" -> "e" : reverseList "t" -> "et"
+                    reverseList "t" -> "t"
+    --}
     | otherwise = last l : reverseList (init l)
