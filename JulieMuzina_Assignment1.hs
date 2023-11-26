@@ -35,3 +35,15 @@ isPrime n
     -- So, if the list of numbers divisible by `n` from `3` to `sqrt(n)` is empty, `n` is prime. 
     -- `fromIntegral` is needed to convert `n` to a floating-point value for use in `sqrt`
     | otherwise = null [i | i <- [3..round (sqrt (fromIntegral n))], mod n i == 0]
+
+{-
+    #3. Create a Haskell function fibonacci that generates the nth Fibonacci number using a recursive approach. 
+    Make sure to handle edge cases, such as when n is 0 or 1.
+-}
+fibonacci :: Integer -> Integer
+fibonacci n
+    -- Corner / base cases
+    | n < 0 = 0
+    | n <= 1 = n
+    -- Recursive step
+    | otherwise = fibonacci(n - 1) + fibonacci(n - 2)
